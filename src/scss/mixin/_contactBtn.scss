@@ -1,0 +1,23 @@
+$width:240px;
+
+@mixin _contactBtn($width){
+  height: 64px;
+  width: $width;
+  background-color: $purple;
+  color:white;
+  font-size: 2rem;
+  font-weight: bold;
+  &:hover{
+    opacity:0.8;
+  }
+  &:before{
+    display: inline-block;
+    content:"";
+    height: 12px;
+    width: 12px;
+    border-top:2px solid white;
+    border-right:2px solid white;
+    transform: rotate(45deg);
+    margin-right: 24px;
+  }
+}

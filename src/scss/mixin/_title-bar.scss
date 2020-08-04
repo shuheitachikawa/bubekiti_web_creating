@@ -1,0 +1,9 @@
+@mixin _title-bar{
+  display: block;
+  content:'';
+  height:8px;
+  width: 166px;
+  border-radius: 4px;
+  background:  linear-gradient(to right,$blue,$purple);
+  margin-top: 8px;
+}
