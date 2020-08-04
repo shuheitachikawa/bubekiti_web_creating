@@ -91,18 +91,25 @@ header{
 }
 
 
-
 .topview{
-  height:calc(100vh - 72px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height:320px;
+  margin-top: 72px;
+  position: relative;
   &__title{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
     font-size: 3.2rem;
     font-weight: bold;
   }
 }
 
+body.home{
+  .topview{
+    height:100vh;
+  }
+}
 
 
 .intro{
@@ -219,17 +226,20 @@ header{
       transform: translate(-50%, 0);
       width: 100%;
       text-align: center;
+    }
+    .service__txt{
       font-size: 1.6rem;
     }
     &:hover{
       &:before{
         border-bottom: 0px solid rgba(255,255,255,0.8);
-      border-right: 0px solid rgba(255,255,255,0.8);
+        border-right: 0px solid rgba(255,255,255,0.8);
         border-left: 350px solid transparent;
         border-top: 216px solid transparent;
       }
     }
     &:before{
+      pointer-events: none;
       position: absolute;
       top:0;
       left:0;
@@ -357,7 +367,7 @@ header{
 }
 
 
-.blog{
+.blogs{
   margin-top: 160px;
   background-color: $grey-back;
   padding-top: 40px;
@@ -428,6 +438,7 @@ header{
     margin: 40px 0 160px;
   }
 }
+
 
 
 .contact{
@@ -504,4 +515,149 @@ footer{
     margin-top: 56px;
     font-size: 1.3rem;
   }
+}
+
+
+
+
+
+
+
+//サービス個別ページ（single-service.php）
+.service-single{
+  @include _container;
+  text-align: center;
+  position: relative;
+  &__img{
+    width:500px;
+    margin:0 auto;
+  }
+  &__txtarea{
+    margin-top: 80px;
+    width: 732px;
+    margin:0 auto;
+    text-align-last: left;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding:32px;
+    h2,h3,h4,p,ul{
+      margin-bottom: 30px;
+    }
+    // h2{
+    //   font-size: 2.5rem;
+    //   padding:20px 40px 18px;
+    //   //background-color: $grey;
+    //   border-left:9px solid $blue;
+    // }
+    h2{
+      font-size: 2rem;
+      border-left:9px solid $purple;
+      //background-color: $grey-back;
+      font-weight: 300;
+      padding:0 15px;
+      font-weight: 600;
+    }
+    a{
+      color:blue;
+      font-weight: 600;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    ul{
+      list-style: none;
+      margin-left: 40px;
+    }
+    li::before{
+      content:"・ ";
+      color:$blue;
+      font-weight: 600;
+    }
+  }
+  .quote-btn{
+    display: block;
+    margin:80px auto 0;
+    height: 170px;
+    width: 170px;
+    line-height: 170px;
+    border-radius: 50%;
+    background:  linear-gradient(to right,$blue,$purple);
+    color:white;
+    font-size: 2rem;
+  }
+  &__link{
+    margin: 48px auto 0;
+    width: 732px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn{
+    @include _btn;
+    width: 359px;
+  }
+  &__other{
+    margin-top: 160px;
+  }
+  &__list--title{
+    @include _sectionTitle('SERVICE');
+    &:after{
+      @include _title-bar;
+      position: relative;
+      left:50%;
+      transform: translate(-50%, 0);
+    }
+  }
+  &__list{
+    margin-top: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item{
+    height: 140px;
+    width: 265px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 2px #9c9c9c;
+    transition: .3s;
+    position: relative;
+    &:hover{
+      box-shadow: none;
+      top:-3px;
+    }
+    &-name{
+      position: absolute;
+      bottom:8px;
+      left:50%;
+      transform: translate(-50%, 0);
+      font-size: 1.3em;
+      width:100%;
+    }
+    &:hover{
+      &:before{
+        border-bottom: 0px solid rgba(255,255,255,0.8);
+      border-right: 0px solid rgba(255,255,255,0.8);
+        border-left: 350px solid transparent;
+        border-top: 216px solid transparent;
+      }
+    }
+    &:before{
+      pointer-events: none;
+      position: absolute;
+      top:0;
+      left:0;
+      content:'';
+      height: 0px;
+      width: 0px;
+      border-bottom: 70px solid rgba(255,255,255,0.8);
+      border-right: 133px solid rgba(255,255,255,0.8);
+      border-left: 133px solid transparent;
+      border-top: 70px solid transparent;
+      transition: .3s;
+    }
+  }
+  
 }

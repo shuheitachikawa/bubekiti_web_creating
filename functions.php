@@ -14,10 +14,12 @@ add_theme_support('post-thumbnails');
 
 //トップページで投稿ページの一覧を呼び出す関数
 function get_specific_posts($post_type, $category_name = null, $post_per_page = -1){
+  $id = get_the_ID();
   $args = array(
     'post_type' => $post_type,
     'category_name' => $category_name,
     'posts_per_page' => $post_per_page,
+    'post__not_in' => array($id),
   );
 $specific_posts = new WP_Query($args);
 return $specific_posts;
