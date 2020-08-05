@@ -543,13 +543,13 @@ footer{
     h2,h3,h4,p,ul{
       margin-bottom: 30px;
     }
-    // h2{
-    //   font-size: 2.5rem;
-    //   padding:20px 40px 18px;
-    //   //background-color: $grey;
-    //   border-left:9px solid $blue;
-    // }
     h2{
+      font-size: 2.5rem;
+      padding:20px 40px 18px;
+      //background-color: $grey;
+      border-left:9px solid $purple;
+    }
+    h3{
       font-size: 2rem;
       border-left:9px solid $purple;
       //background-color: $grey-back;
@@ -558,6 +558,8 @@ footer{
       font-weight: 600;
     }
     a{
+      display: inline-block;
+      width:auto;
       color:blue;
       font-weight: 600;
       &:hover{
@@ -566,11 +568,11 @@ footer{
     }
     ul{
       list-style: none;
-      margin-left: 40px;
+      margin-left: 8px;
     }
     li::before{
       content:"・ ";
-      color:$blue;
+      color:$purple;
       font-weight: 600;
     }
   }
@@ -660,4 +662,96 @@ footer{
     }
   }
   
+}
+
+
+//制作物個別ページ page-works.php
+.works-single{
+  &__link{
+    margin: 48px auto 160px;
+    width: 732px;
+    text-align: center;
+  }
+  &__btn{
+    @include _btn;
+    width: 359px;
+  }
+  &__other{
+    margin-top: 160px;
+  }
+  &__list--title{
+    @include _sectionTitle('CURRENT WORKS');
+    &:after{
+      @include _title-bar;
+      position: relative;
+      left:50%;
+      transform: translate(-50%, 0);
+    }
+  }
+  &__list{
+    margin-top: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+  }
+  &__item{
+    margin:0 16px;
+    height: 140px;
+    width: 265px;
+    position: relative;
+    box-shadow: 1px 1px 2px #9c9c9c;
+    transition: .3s;
+    &:hover{
+      box-shadow: none;
+      top:-3px;
+    }
+    &-name{
+      margin-top: 8px;
+      font-size: 1.3em;
+    }
+  }
+  &__visit{
+    @include _btn;
+    background-color: $purple;
+    margin-top: 40px;
+    width: 240px;
+  } 
+  &__pcimg{
+    margin: 0 auto;
+    width: 500px;
+    height: 383px;
+    background-image: url(../img/work.png); 
+    background-size: cover;
+    position: relative;
+  }
+  &__img{
+    position: absolute;
+    left:9px;
+    top:8px;
+    width:483px;
+    height:279px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  &__table{
+    width: 100%;
+    margin: 40px 0;
+    tr{
+      height:64px;
+      td{
+        width: 25%;
+        line-height: 6.4rem;
+        border:1px solid $grey-font;
+        padding-left: 8px;
+        font-size: 1.6rem;
+        &.works-single__table-work{
+          line-height: 3rem;
+        }
+      }
+    }
+    &-title{
+      background-color: $grey-back;
+      font-weight: bold;
+    }
+  }
 }
